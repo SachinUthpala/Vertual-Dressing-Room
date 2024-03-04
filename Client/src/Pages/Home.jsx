@@ -3,6 +3,8 @@ import { Card } from "flowbite-react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { GiClothes } from "react-icons/gi";
 import { CiHeadphones } from "react-icons/ci";
+import SignUpBanner from "../Components/SignUpBanner";
+import HomeCurosal from "../Components/HomeCurosal";
 
 export default function Home() {
   return (
@@ -58,6 +60,10 @@ export default function Home() {
         </div>
       </div>
 
+      <HomeCurosal/>
+
+      <SignUpBanner/>
+
       <div className="flex m-3 gap-2">
           <Card className="max-w-sm hover:bg-gradient-to-r from-cyan-200 via-blue-300 to-blue-400 cursor-pointer" imgSrc="/public/kids.jpeg" horizontal >
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -86,6 +92,8 @@ export default function Home() {
           </p>
         </Card>
       </div>
+
+      
     </>
   )
 }
