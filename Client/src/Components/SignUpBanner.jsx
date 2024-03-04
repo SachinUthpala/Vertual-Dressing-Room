@@ -1,5 +1,4 @@
-import { Banner, Button } from 'flowbite-react';
-import { HiX } from 'react-icons/hi';
+import { Banner } from 'flowbite-react';
 
 export default function SignUpBanner() {
 
@@ -13,20 +12,24 @@ export default function SignUpBanner() {
                 href="https://flowbite.com/"
                 className="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4"
             >
-                <img src="https://flowbite.com/docs/images/logo.svg" className="mr-2 h-6" alt="Flowbite Logo" />
+                <span className='px-2 mr-1 bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 text-white rounded-lg'>
+                    FITTON
+                </span>
                 <span className="self-center whitespace-nowrap text-lg font-semibold dark:text-white md:pr-6">
-                Flowbite
+                YOU
                 </span>
             </a>
             <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
-                Build websites even faster with components on top of Tailwind CSS
+                Sign Up for Free and Get more benifits from our website and have a good shopping expericence
             </p>
             </div>
             <div className="flex flex-shrink-0 items-center">
-                <Button href="#">Sign up</Button>
-                <Banner.CollapseButton color="gray" className="border-0 bg-transparent text-gray-500 dark:text-gray-400">
-                    <HiX className="h-4 w-4" />
-                </Banner.CollapseButton>
+                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Sign In
+                </span>
+                </button>
+                
             </div>
         </div>
     </Banner>

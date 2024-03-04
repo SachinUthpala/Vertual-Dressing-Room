@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
 
-      <div className="m-6 justify-items-center md:flex gap-16">
+      <div className="m-6 justify-items-center gap-16 flex flex-col md:flex-row">
         <div className="flex gap-2 items-center">
           <div className="border-2 border-blue-600 rounded-full p-2">
             <CiDeliveryTruck

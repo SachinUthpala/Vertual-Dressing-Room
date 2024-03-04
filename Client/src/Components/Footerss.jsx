@@ -3,6 +3,7 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-
 import { Link } from 'react-router-dom';
 
 export default function Footerss() {
+  
   return (
     <Footer container className='border-t-2 mt-3'>
       <div className="w-full">
@@ -19,8 +20,8 @@ export default function Footerss() {
             <div>
               <Footer.Title title="Quick Navigation" />
               <Footer.LinkGroup col>
-                <Footer.Link  as={'div'}>
-                  <Link to={'/'}>
+              <Footer.Link  as={'div'}>
+                  <Link to={'/'} >
                     Home
                   </Link>
                 </Footer.Link>

@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <div className='sticky top-0 z-10'>
-      <Navbar className="border-b-2 mb-3">
+      <Navbar className="border-b-2 mb-3 bg-gray-100">
 
         <Link to={'/'} className='self-center whitespace-nowrap text-sm sm:text-2xl font-semibold dark:text-white'>
           <span className='px-2 mr-1 bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-700 text-white rounded-lg'>
