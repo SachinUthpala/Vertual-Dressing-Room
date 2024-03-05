@@ -5,7 +5,18 @@ DEPENDANCIES :- Flowbite : npm i flow
                 VITE : npm create vite@latest
                 React-Router-Dom : npm i readt-router-dom
                 Tailwind CSS : npm i tailwind
+                Bcryptjs : npm i bcryptjs
 
 ⚓⚓⚓ UPDATED THE TAILWIND.CONFIG.JS File As FLOWBITE
 ⚓⚓⚓ UPDATED THE INDEX.CSS FILE AS TAILWIND FILE
 ⚓⚓⚓ UPDATED THE APP.JS USING REACT ROUTER DOM TO CHANGE THE PAGES
+
+
+❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
+⭐I create Auth.Rout.Js file to hande the sign up and login functionalities 
+of our web application.
+⭐We use bcript js to hash password for more safe
+
+
+❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
