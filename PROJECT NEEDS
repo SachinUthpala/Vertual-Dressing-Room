@@ -1,2 +1,11 @@
 MOGODB :-   Username : gunasekarasuda
             Password : IszLHmkg1oFoWoVy
+
+DEPENDANCIES :- Flowbite : npm i flow
+                VITE : npm create vite@latest
+                React-Router-Dom : npm i readt-router-dom
+                Tailwind CSS : npm i tailwind
+
+⚓⚓⚓ UPDATED THE TAILWIND.CONFIG.JS File As FLOWBITE
+⚓⚓⚓ UPDATED THE INDEX.CSS FILE AS TAILWIND FILE
+⚓⚓⚓ UPDATED THE APP.JS USING REACT ROUTER DOM TO CHANGE THE PAGES
