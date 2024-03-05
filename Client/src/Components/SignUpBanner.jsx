@@ -6,7 +6,7 @@ export default function SignUpBanner() {
   return (
     <div className='flex justify-center'>
         <Banner>
-        <div className="flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl">
+        <div className="flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl ">
             <div className="mb-3 mr-4 flex flex-col items-start md:mb-0 md:flex-row md:items-center">
             <a
                 href="https://flowbite.com/"
