@@ -2,7 +2,7 @@
   "name": "vertual-dressing-room",
   "version": "1.0.0",
   "description": "",
-  "type":"module",
+  "type": "module",
   "main": "index.js",
   "dependencies": {
     "abbrev": "^1.1.1",
@@ -15,6 +15,7 @@
     "chokidar": "^3.6.0",
     "concat-map": "^0.0.1",
     "debug": "^4.3.4",
+    "dotenv": "^16.4.5",
     "express": "^4.18.3",
     "fill-range": "^7.0.1",
     "glob-parent": "^5.1.2",
@@ -56,8 +57,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon api/index.js",
-    "start":"node api/index.js"
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
   },
   "author": "",
   "license": "ISC"
