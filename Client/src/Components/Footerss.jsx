@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Footerss() {
   
   return (
-    <Footer container className='border-t-2 mt-3'>
+    <Footer container className='border-t-2 border-blue-700 mt-5'>
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
