@@ -17,6 +17,11 @@ DEPENDANCIES :- Flowbite : npm i flow
 ⭐I create Auth.Rout.Js file to hande the sign up and login functionalities 
 of our web application.
 ⭐We use bcript js to hash password for more safe
+⭐ I created utils foldr inside the api folder for handling all the erros 
 
 
 ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
+
+⚓⚓⚓⚓⚓⚓⚓ Error Handing Code
+❓❓❓res.status(400).json({massage : "All Feilds are required"})

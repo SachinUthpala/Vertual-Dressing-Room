@@ -1,6 +1,6 @@
 import bcryptjs from 'bcryptjs'
 import User from './../Models/User.Model.js';
-export const signup = async (req , res) => {
+export const signup = async (req , res , next) => {
     console.log(req.body);
 
     const {userName, userMail , userPassword , userType} = req.body;
@@ -25,9 +25,7 @@ export const signup = async (req , res) => {
             massage : "Signup Sucessfull"
         })
     } catch (error) {
-        res.status(500).json({
-            massage : error
-        });
+        next(error)
     }
 
     // newUser.save().then((req , res) => {

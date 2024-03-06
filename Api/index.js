@@ -25,3 +25,16 @@ app.listen(3000,()=>{
 //routers
 app.use('/api/user' , userRout );
 app.use('/api/auth' , userSignUp );
+
+
+//creating a middleware to handle the errors
+app.use((err,req,res,next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
+
+    res.status(statusCode).json({
+        success : false,
+        statusCode,
+        message
+    })
+});
