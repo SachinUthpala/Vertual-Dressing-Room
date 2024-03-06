@@ -3,9 +3,9 @@ import User from './../Models/User.Model.js';
 export const signup = async (req , res , next) => {
     console.log(req.body);
 
-    const {userName, userMail , userPassword , userType} = req.body;
+    const {userName, userMail , userPassword } = req.body;
 
-    if(!userName || !userMail || !userPassword || !userType || userName === '' || userPassword === '' || userType === '' 
+    if(!userName || !userMail || !userPassword  || userName === '' || userPassword === ''
     || userMail === ''){
         return res.status(400).json({massage : "All Feilds are required"})
     }
@@ -16,7 +16,7 @@ export const signup = async (req , res , next) => {
         userName,
         userMail,
         userPassword : hashPassword,
-        userType
+        userType : "false"
     })
 
     try {
