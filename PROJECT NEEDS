@@ -18,7 +18,7 @@ DEPENDANCIES :- Flowbite : npm i flow
 of our web application.
 ⭐We use bcript js to hash password for more safe
 ⭐ I created utils foldr inside the api folder for handling all the erros 
-
+⭐ We are using Redux tool kit to save user data on the destop to use in our web application
 
 ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 
