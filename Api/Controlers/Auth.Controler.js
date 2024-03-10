@@ -74,3 +74,26 @@ export const signin = async (req , res , next) => {
         next(error);
     }
 }
+
+export const google = async (req, res, next) => {
+    const { userName , userMail , profileImg} = req.body;
+
+    //finding whether user is exsisitaccess
+
+    try {
+        const exsisitUser = User.findOne(userMail);
+
+        if(exsisitUser){
+            const token = jwd.sign({userId : exsisitUser._id} , process.env.JWT_SECRET_KEY)
+            const {userPassword , ...rest} = exsisitUser._doc
+            res.status(200).cookie('access_token' , token , {
+                httpOnly : true
+            }).json(rest)
+        }
+
+    } catch (error) {
+        next(error)
+    }
+
+
+}

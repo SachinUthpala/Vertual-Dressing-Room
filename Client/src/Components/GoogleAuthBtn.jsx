@@ -23,24 +23,28 @@ export default function GoogleAuthBtn() {
 
         try {
             const resultFromGoogle = await signInWithPopup(auth , provider)
-            // console.log(resultFromGoogle);
+            console.log(resultFromGoogle);
 
-            const res = await fetch('api/auth/google',
-                {method : 'POST',
-                headers :{'Content-type' : 'application/json'},
-                body : JSON.stringify({
+            //createa  a response to give to back end
+            const res = await fetch('/api/auth/signup' , {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
                     userName : resultFromGoogle.user.displayName,
                     userMail : resultFromGoogle.user.email,
-                    googlePhotoUrl : resultFromGoogle.user.userPhotoURL
+                    profileImg: resultFromGoogle.user.photoURL,
                 })
             });
 
-            const data = await res.JSON()
+            const data = res.json();
 
             if(res.ok){
-                dispatch(signInSucess(data));
+                dispatch(signInSucess(data))
                 navigate('/')
             }
+            
 
         } catch (error) {
             console.log(error);
