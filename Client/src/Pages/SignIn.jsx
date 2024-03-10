@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInStart , signInSucess , signInFauiler } from "../redux/Users/UserSlice";
 import { useDispatch, useSelector } from "react-redux";
+import GoogleAuthBtn from "../Components/GoogleAuthBtn";
 
 
 export default function SignIn() {
@@ -119,6 +120,7 @@ export default function SignIn() {
                 ) :  'Sign In'
               }
             </Button>
+            <GoogleAuthBtn/>
           </form>
           <div className="flex gap-2 flex-rowonChan">
             <span>Dont have an Account ? </span>
