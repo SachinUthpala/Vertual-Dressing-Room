@@ -26,10 +26,10 @@ export default function GoogleAuthBtn() {
             console.log(resultFromGoogle);
 
             //createa  a response to give to back end
-            const res = await fetch('/api/auth/signup' , {
+            const res = await fetch('/api/auth/googleAuth' , {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     userName : resultFromGoogle.user.displayName,
@@ -39,6 +39,8 @@ export default function GoogleAuthBtn() {
             });
 
             const data = res.json();
+
+            console.log(data)
 
             if(res.ok){
                 dispatch(signInSucess(data))

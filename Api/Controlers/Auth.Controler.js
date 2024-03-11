@@ -75,25 +75,47 @@ export const signin = async (req , res , next) => {
     }
 }
 
-export const google = async (req, res, next) => {
-    const { userName , userMail , profileImg} = req.body;
 
-    //finding whether user is exsisitaccess
+
+
+
+
+export const googleAuth = async (req, res, next) => {
+    const { userName, userMail, profileImg } = req.body;
+
+    console.log(userName);
 
     try {
-        const exsisitUser = User.findOne(userMail);
+        const existingUser = await User.findOne({ userMail });
+        
+        console.log(existingUser)// Corrected the findOne query
 
-        if(exsisitUser){
-            const token = jwd.sign({userId : exsisitUser._id} , process.env.JWT_SECRET_KEY)
-            const {userPassword , ...rest} = exsisitUser._doc
-            res.status(200).cookie('access_token' , token , {
-                httpOnly : true
-            }).json(rest)
+        if (existingUser) {
+            const token = jwd.sign({ userId: existingUser._id }, process.env.JWT_SECRET_KEY);
+            const { userPassword, ...rest } = existingUser._doc;
+            res.status(200).cookie('access_token', token, {
+                httpOnly: true
+            }).json(rest);
+        } else {
+            const generatedPass = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+            const hashedPass = bcryptjs.hashSync(generatedPass, 10);
+
+            const newUser = new User({
+                userName: userName,
+                userMail: userMail,
+                userPassword: hashedPass,
+                userType: "false",
+                profileImg: profileImg
+            });
+
+            await newUser.save();
+            const token = jwd.sign({ userId: newUser._id }, process.env.JWT_SECRET_KEY);
+            const { userPassword, ...rest } = newUser._doc;
+            res.status(200).cookie('access_token', token, {
+                httpOnly: true,
+            }).json(rest);
         }
-
     } catch (error) {
-        next(error)
+        next(error);
     }
-
-
-}
+};
