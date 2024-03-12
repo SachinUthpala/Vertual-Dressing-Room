@@ -3,8 +3,26 @@ import { FaMessage} from "react-icons/fa6";
 import { LuPhoneCall } from "react-icons/lu";
 import { MdOutlineMailLock } from "react-icons/md";
 import { FaAddressCard } from "react-icons/fa";
+import { useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_3xs0aas', 'template_v2rrtyh', form.current, '_saCpDjmvaxbFTD1d')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
+
+
   return (
     <div className="p-5">
 
@@ -54,21 +72,21 @@ export default function ContactUs() {
             </div>
           </div>
 
-          <form className="flex-col flex gap-6 mb-4 p-6 flex-1" >
+          <form className="flex-col flex gap-6 mb-4 p-6 flex-1" onSubmit={sendEmail} >
 
             <div>
               <Label value="Your Name "/>
-              <TextInput type="text" placeholder="Your Name" id="userMail" />
+              <TextInput type="text" placeholder="Your Name" name="user_name" id="userMail" />
             </div>
 
             <div>
               <Label value="Your Email "/>
-              <TextInput type="email" placeholder="Your Email " id="userPassword" />
+              <TextInput type="email" placeholder="Your Email " name="user_email" id="userPassword" />
             </div>
 
             <div>
               <Label value="Your Massage "/>
-              <Textarea type="text" placeholder="Enter your massage here ..." id="userPassword" />
+              <Textarea type="text" placeholder="Enter your massage here ..." name="message" id="userPassword" />
             </div>
 
             
