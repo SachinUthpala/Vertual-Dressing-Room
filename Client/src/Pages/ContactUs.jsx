@@ -6,7 +6,11 @@ import { FaAddressCard } from "react-icons/fa";
 import { useRef } from "react";
 import emailjs from '@emailjs/browser';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function ContactUs() {
+
 
   const form = useRef();
 
@@ -16,11 +20,23 @@ export default function ContactUs() {
     emailjs.sendForm('service_3xs0aas', 'template_v2rrtyh', form.current, '_saCpDjmvaxbFTD1d')
       .then((result) => {
           console.log(result.text);
+        
       }, (error) => {
           console.log(error.text);
       });
   };
 
+    const notify = () => toast.success('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
 
 
   return (
@@ -91,7 +107,7 @@ export default function ContactUs() {
 
             
 
-            <Button gradientDuoTone="purpleToBlue" type="submit"  outline>
+            <Button gradientDuoTone="purpleToBlue" type="submit" onClick={notify} value="Send" outline>
               <div className="flex gap-3 items-center">
                 <span>Send Message</span>
                 <FaMessage/>
