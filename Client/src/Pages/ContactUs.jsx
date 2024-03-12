@@ -35,7 +35,6 @@ export default function ContactUs() {
       draggable: true,
       progress: undefined,
       theme: "light",
-      transition: Bounce,
     });
 
 
