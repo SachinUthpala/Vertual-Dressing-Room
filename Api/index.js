@@ -27,6 +27,13 @@ app.use('/api/user' , userRout );
 app.use('/api/auth' , userSignUp );
 
 
+
+
+
+
+
+
+
 //creating a middleware to handle the errors
 app.use((err,req,res,next) => {
     const statusCode = err.statusCode || 500;
