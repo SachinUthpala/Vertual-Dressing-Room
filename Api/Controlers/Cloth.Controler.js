@@ -46,3 +46,21 @@ export const displayAll = async ( req , res) => {
         console.log(err);
     })
 }
+
+//disply one cloth
+
+export const oneCloth = async( req ,res) => {
+    const id = req.params.id;
+
+    Cloth.findById(id).then(cloth => {
+        if(!cloth){
+            return res.status(404).json({error : 'cloth not found'});
+
+        }
+
+        res.json(cloth);
+    }).catch(err => {
+        console,log(err)
+    })
+}
+
