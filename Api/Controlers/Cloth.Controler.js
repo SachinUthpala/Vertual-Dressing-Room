@@ -36,6 +36,13 @@ export const addCloth = async (req , res) => {
     } catch (error) {
         console.log(error)
     }
+}
 
-
+//display all cloths
+export const displayAll = async ( req , res) => {
+    Cloth.find().then((cloths) => {
+        res.json(cloths)
+    }).catch((err) => {
+        console.log(err);
+    })
 }
