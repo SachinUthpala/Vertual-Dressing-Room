@@ -20,11 +20,6 @@ const  clothShema = new mongoose.Schema({
         type : Number,
         default : 0
     },
-    clothSize : {
-        require : true,
-        type : String,
-        default : S
-    },
     clothAvailability : {
         require : true,
         type : String,

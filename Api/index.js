@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 
 import userRout from './Routs/User.Rout.js'
 import userSignUp from './Routs/Auth.Rout.js'
+import clothRout from './Routs/Cloth.Rout.js'
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.listen(3000,()=>{
 //routers
 app.use('/api/user' , userRout );
 app.use('/api/auth' , userSignUp );
+app.use('/api/cloth' , clothRout);
 
 
 
