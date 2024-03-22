@@ -93,8 +93,23 @@ export const updateCloth = async (req,res) => {
     const update = await Cloth.findByIdAndUpdate(id , updateCloth).then(() =>{
         res.json('Cloth updated');
     }).catch((err) => {
-        
+
         console.log(err);
 
     })
+}
+
+//create delete cloth
+
+export const deleteCloth = async ( req, res) => {
+
+    const id = req.params.id;
+
+    Cloth.findByIdAndDelete(id).then(() => {
+        res.json('Cloth deleted');
+    }).catch ((err) => {
+        console.log(err);
+    })
+
+
 }
