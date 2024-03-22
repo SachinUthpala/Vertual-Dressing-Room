@@ -64,3 +64,37 @@ export const oneCloth = async( req ,res) => {
     })
 }
 
+//update cloth
+
+export const updateCloth = async (req,res) => {
+
+    const id = req.params.id;
+
+    const {
+        clothName,
+        clothBrand,
+        clothType,
+        clothPrice,
+        clothAvailability,
+        clothImage
+    } = req.body
+
+    console.log(clothName , clothBrand , clothType );
+
+    const updateCloth = {
+        clothName,
+        clothBrand,
+        clothType,
+        clothPrice,
+        clothAvailability,
+        clothImage
+    }
+
+    const update = await Cloth.findByIdAndUpdate(id , updateCloth).then(() =>{
+        res.json('Cloth updated');
+    }).catch((err) => {
+        
+        console.log(err);
+
+    })
+}
