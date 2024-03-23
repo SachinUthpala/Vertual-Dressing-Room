@@ -52,18 +52,22 @@ export default function DressingRoom() {
                     </a>
                     </Table.Cell>
                 </Table.Row>
+                
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</Table.Cell>
-                    <Table.Cell>Black</Table.Cell>
-                    <Table.Cell>Accessories</Table.Cell>
-                    <Table.Cell>$99</Table.Cell>
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        <img src="./public/s22.png"  width={'50px'} height={'60px'} />
+                    </Table.Cell>
+                    <Table.Cell>Shirt</Table.Cell>
+                    <Table.Cell>Laptop</Table.Cell>
+                    <Table.Cell>Men</Table.Cell>
                     <Table.Cell>$2999</Table.Cell>
                     <Table.Cell>
-                    <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+                    <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500" onClick={() => setShirt('./public/s22.png')}>
                         Try Now 
                     </a>
                     </Table.Cell>
                 </Table.Row>
+
                 <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                     <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                     Google Pixel Phone
