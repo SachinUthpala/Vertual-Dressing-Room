@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 
 const  cartShema = new mongoose.Schema({
-    userMail :{
+    userId :{
         require : true,
         type : String
     },
@@ -34,4 +34,4 @@ const  cartShema = new mongoose.Schema({
 
 const Cart = mongoose.model('Cloth' , cartShema);
 
-export default Cloth;
+export default Cart;
