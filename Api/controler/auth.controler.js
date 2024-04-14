@@ -1,8 +1,9 @@
 
+import {errorHandler}  from './../utils/error.js';
 import User from './../models/user.model.js';
 import bryptjs from 'bcryptjs'
 
-export const signUp = async (req , res) => {
+export const signUp = async (req , res , next) => {
     const {
         username , 
         email,
@@ -10,9 +11,16 @@ export const signUp = async (req , res) => {
     } = req.body;
 
     //cheacking
-    if(!username || !email || !password || username === ' ' || email === ' ' || password === ' '){
-        return res.status(400).json({message : 'all feilds are required'});
-    }
+    if (
+        !username ||
+        !email ||
+        !password ||
+        username === '' ||
+        email === '' ||
+        password === ''
+      ) {
+        next(errorHandler(400, 'All fields are required'));
+      }
 
     const hashPass = bryptjs.hashSync(password , 10);
 
@@ -26,7 +34,7 @@ export const signUp = async (req , res) => {
         await newUser.save();
         res.json({message : "Signup Sucessfull"});
     } catch (error) {
-        res.status(500).json({message : error.message});
+        next(error)
     }
 }
 
