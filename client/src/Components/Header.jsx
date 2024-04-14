@@ -1,11 +1,13 @@
 
 import { Button, Navbar, TextInput } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
 import { IoMdMoon } from "react-icons/io";
 
 
 export default function Header() {
+    // gettig current path
+    const path = useLocation().pathname;
   return (
     <Navbar
     className='border-b-2 items-center'>
@@ -40,17 +42,17 @@ export default function Header() {
         </div>
         {/* Nav Bar */}
         <Navbar.Collapse>
-            <Navbar.Link>
+            <Navbar.Link active={path === '/'} as={'div'}>
                 <Link to={'/'}>
                     Home
                 </Link>
             </Navbar.Link>
-            <Navbar.Link>
+            <Navbar.Link active={path === '/aboutus'} as={'div'}>
                 <Link to={'/aboutus'}>
                     About Us
                 </Link>
             </Navbar.Link>
-            <Navbar.Link>
+            <Navbar.Link active={path === 'contactus'} as={'div'}>
                 <Link to={'/aboutus'}>
                     Contact Us
                 </Link>
