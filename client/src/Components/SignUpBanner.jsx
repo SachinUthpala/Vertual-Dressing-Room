@@ -1,8 +1,10 @@
-import { Banner } from 'flowbite-react';
+import { Avatar, Banner } from 'flowbite-react';
+import { useSelector } from 'react-redux';
 
 export default function SignUpBanner() {
 
-
+    const {currentUser} = useSelector(state => state.user);
+    
   return (
     <div className='flex justify-center'>
         <Banner>
@@ -20,15 +22,31 @@ export default function SignUpBanner() {
                 </span>
             </a>
             <p className="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">
-                Sign Up for Free and Get more benifits from our website and have a good shopping expericence
+               {
+                currentUser ? (
+                    <> <h2 className='font-semibold'>Welcome {currentUser.username} & {currentUser.email}</h2></>
+                ) : (
+                    <>
+                        <span> Sign Up for Free and Get more benifits from our website and have a good shopping expericence</span>
+                    </>
+                )
+               }
             </p>
             </div>
             <div className="flex flex-shrink-0 items-center">
-                <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                Sign In
-                </span>
-                </button>
+                {
+                    currentUser ? (
+                        <>
+                        <Avatar img={currentUser.profilePicture} rounded />
+                        </>
+                    ):(
+                        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            Sign In
+                            </span>
+                        </button>
+                    )
+                }
                 
             </div>
         </div>

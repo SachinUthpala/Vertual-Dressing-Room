@@ -2,14 +2,18 @@
 import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react';
 import { Link, useLocation } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
-import { IoMdMoon } from "react-icons/io";
+import { IoMdMoon, IoMdSunny } from "react-icons/io";
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { toggleTheme } from '../redux/theme/themeSlice';
 
 
 export default function Header() {
     // gettig current path
     const path = useLocation().pathname;
     const {currentUser} = useSelector(state => state.user);
+    const dispatch = useDispatch();
+    const {theme} = useSelector(state => state.theme)
   return (
     <Navbar
     className='border-b-2 items-center'>
@@ -32,8 +36,14 @@ export default function Header() {
         </Button>
         {/* div for moon and sign up */}
         <div className='flex gap-2 items-center md:order-2'>
-            <Button className='w-12 h-10 hidden sm:inline' color={'gray'} pill>
-                <IoMdMoon/>
+            <Button className='w-12 h-10 hidden sm:inline' color={'gray'} pill onClick={() => dispatch(toggleTheme())}>
+                {
+                    theme === 'light' ? (
+                        <IoMdMoon/>
+                    ) : (
+                        <IoMdSunny/>
+                    )
+                }
             </Button>
             {
                 currentUser ? (
