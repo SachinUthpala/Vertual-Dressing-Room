@@ -25,11 +25,10 @@ export default function Dashbord() {
         <DashSideBar/>
       </div>
       {/* dashbord content */}
-      <div className="">
         {
           tab === 'profile' && <DashProfile/>
         }
-      </div>
+      
     </div>
   )
 }
