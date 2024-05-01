@@ -25,3 +25,7 @@ of our web application.
 
 ⚓⚓⚓⚓⚓⚓⚓ Error Handing Code
 ❓❓❓res.status(400).json({massage : "All Feilds are required"})
+
+
+
+♨️♨️♨️♨️♨️♨️♨️ JWT SECRET KEY = "Sachin";
