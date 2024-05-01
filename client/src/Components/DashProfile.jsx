@@ -70,6 +70,9 @@ export default function DashProfile() {
         },
         (error) => {
           setImageFileUploadError("could Not Upload");
+          setImageFileUploadingProgress(null);
+          setImageFile(null);
+          setImgFileUrl(null);
           console.log(error);
         },
         () => {
