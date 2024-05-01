@@ -1,9 +1,13 @@
 
-import { Button, TextInput } from 'flowbite-react';
+import { Button, TextInput, Alert } from 'flowbite-react';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { app } from './../firebase';
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
+
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 export default function DashProfile() {
 
     const {currentUser} = useSelector((state) => state.user)
@@ -86,9 +90,28 @@ export default function DashProfile() {
             <div className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full" onClick={() => {
               filePickerRef.current.click()
             }}>
+              {imageFileUploadingProgress &&(
+                <CircularProgressbar value={imageFileUploadingProgress || 0} text={`${imageFileUploadingProgress}%`}
+                  strokeWidth={5}
+                  styles={{
+                    root:{
+                      width : '100%',
+                      height : '100%',
+                      position : 'absolute',
+                      top : 0,
+                      left : 0
+                    },path : {
+                      stroke : `rgba(62,152,199,${imageFileUploadingProgress/100})`,
+                    }
+                  }}
+                />
+              )}
                 <img src={imgFileUrl || currentUser.profilePicture} alt="" 
                 className='rounded-full w-full h-full object-cover border-8 border-gray-500' />
             </div>
+            {
+              imageFileUploadError && <Alert color='failure'>{imageFileUploadError}</Alert>
+            }
             <TextInput type='text' placeholder='username' defaultValue={currentUser.username} />
             <TextInput type='text' placeholder='email' defaultValue={currentUser.email} />
             <TextInput type='password' placeholder='password'  />
