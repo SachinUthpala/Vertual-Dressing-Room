@@ -4,10 +4,10 @@ import { useState } from 'react';
 import {
   HiUser,
   HiArrowSmLeft,
-  HiDocumentText,
-  HiOutlineUserGroup,
-  HiAnnotation,
-  HiChartPie,
+  // HiDocumentText,
+  // HiOutlineUserGroup,
+  // HiAnnotation,
+  // HiChartPie,
 } from 'react-icons/hi';
 import { Link, useLocation } from 'react-router-dom';
 
