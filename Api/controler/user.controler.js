@@ -85,3 +85,10 @@ export const signout = (req, res, next) => {
     next(error);
   }
 };
+
+
+export const getAllUsers = async (req , res , next) => {
+  const users = await User.find();
+  res.json(users);
+  console.log(users);
+}
