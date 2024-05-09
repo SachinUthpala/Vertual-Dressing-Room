@@ -1,16 +1,24 @@
 
+<<<<<<< HEAD
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
+=======
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
 import { Button, TextInput, Alert, Modal } from 'flowbite-react';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { app } from './../firebase';
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage'
-
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import {Link} from 'react-router-dom'
+import { updateStart , updateSuccess , updateFailure, deleteUserStart, deleteUserFailure, deleteUserSuccess , signoutSuccess} from '../redux/user/userSlice';
 
+<<<<<<< HEAD
 import { updateStart , updateSuccess , updateFailure, deleteUserStart, deleteUserFailure, signoutSuccess } from '../redux/user/userSlice';
+=======
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
 
 export default function DashProfile() {
 
@@ -20,7 +28,11 @@ export default function DashProfile() {
     const [imageFileUploadingProgress , setImageFileUploadingProgress] = useState(null);
     const [imageFileUploadError , setImageFileUploadError] = useState(null);
     const [formData , setFormData] = useState({});
+<<<<<<< HEAD
     const [showModel , setShowModel] = useState(false);
+=======
+    const [showModel , setShoeModel] = useState(false);
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
 
 
     const filePickerRef = useRef();
@@ -129,6 +141,7 @@ export default function DashProfile() {
 
     console.log(currentUser._id);
 
+<<<<<<< HEAD
     //delete user code
     const handleUserDelete = async () => {
       setShowModel(false);
@@ -146,11 +159,30 @@ export default function DashProfile() {
           dispatch(deleteUserFailure(data));
         }
       }catch(error){
+=======
+    const handleDeleteUse = async () => {
+      setShoeModel(false);
+      try {
+        dispatch(deleteUserStart());
+        const res = await fetch(`/api/user/delete/${currentUser._id}`,{
+          method : 'DELETE',
+        });
+
+        const data = await res.json();
+
+        if(!res.ok){
+          dispatch(deleteUserFailure(data.message));
+        }else{
+          dispatch(deleteUserSuccess(data));
+        }
+      } catch (error) {
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
         dispatch(deleteUserFailure(error.message));
       }
     }
 
     const handleSignOut = async () => {
+<<<<<<< HEAD
       
       try {
         const res = await fetch('/api/user/signOut' , {
@@ -162,13 +194,29 @@ export default function DashProfile() {
         if(res.ok){
           dispatch(signoutSuccess());
           console.log(data.message);
+=======
+      try {
+        const res = await fetch('/api/user/signout', {
+          method: 'POST',
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          console.log(data.message);
+        } else {
+          dispatch(signoutSuccess());
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
         }
       } catch (error) {
         console.log(error.message);
       }
+<<<<<<< HEAD
 
 
     }
+=======
+    }
+
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
         <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
@@ -210,15 +258,34 @@ export default function DashProfile() {
             } />
 
             <Button type='submit' gradientDuoTone='purpleToBlue' outline>Update</Button>
+
+            {
+              currentUser.isAdmin && (
+                <Link to={'/create-dress'}>
+                  <Button type='button' 
+                    gradientDuoTone='purpleToBlue'
+                    className='w-full' >
+                      Add A Dress
+                    </Button>
+                </Link>
+              )
+            }
+
+
         </form>
         <div className='text-red-500 flex justify-between mt-5'>
+<<<<<<< HEAD
         <span onClick={() => setShowModel(true)} className='cursor-pointer'>
+=======
+        <span onClick={() => setShoeModel(true)} className='cursor-pointer'>
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
           Delete Account
         </span>
         <span onClick={handleSignOut} className='cursor-pointer'>
           Sign  Out
         </span>
       </div>
+<<<<<<< HEAD
 
       <Modal
         show={showModel}
@@ -229,21 +296,43 @@ export default function DashProfile() {
         <Modal.Header />
         <Modal.Body>
           <div className='text-center'>
+=======
+      
+      {/* show mpodel */}
+      <Modal show={showModel} onClose={() => setShoeModel(false)} popup size='md'>
+            <Modal.Header/>
+            <Modal.Body>
+            <div className='text-center'>
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
               Are you sure you want to delete your account?
             </h3>
             <div className='flex justify-center gap-4'>
+<<<<<<< HEAD
               <Button color='failure' onClick={handleUserDelete} >
                 Yes, Im sure
               </Button>
               <Button color='gray' onClick={() => setShowModel(false)}>
+=======
+              <Button color='failure' onClick={handleDeleteUse} >
+                Yes, I m sure
+              </Button>
+              <Button color='gray' onClick={() => setShoeModel(false)}>
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
                 No, cancel
               </Button>
             </div>
           </div>
+<<<<<<< HEAD
         </Modal.Body>
       </Modal>
+=======
+            </Modal.Body>
+      </Modal>
+
+
+>>>>>>> 519247e4c3bb702ea84a5d11de55f1ab4830d03f
     </div>
   )
 }
