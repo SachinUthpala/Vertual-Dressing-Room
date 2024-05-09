@@ -3,6 +3,7 @@ import { mongoose } from 'mongoose';
 import userRout from './routs/user.rout.js'
 import authRout from './routs/auth.rout.js'
 import cookieParser from "cookie-parser";
+import dressRout from './routs/dress.rout.js';
 
 
 mongoose.connect('mongodb+srv://gunasekarasuda:IszLHmkg1oFoWoVy@sachin.xeead9z.mongodb.net/?retryWrites=true&w=majority&appName=Sachin'
@@ -24,6 +25,7 @@ app.listen(3000 , () => {
 //create apis
 app.use('/api/user' , userRout);
 app.use('/api/auth' , authRout);
+app.use('/api/cloth' , dressRout);
 
 
 
