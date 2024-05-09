@@ -3,10 +3,31 @@ import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react';
 import { Link, useLocation } from 'react-router-dom';
 import { IoSearchOutline } from "react-icons/io5";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
+import { signoutSuccess } from '../redux/user/userSlice';
 
+
+
+const handleSignOut = async () => {
+    
+    try {
+      const res = await fetch('/api/user/signOut' , {
+        method : 'POST',
+      });
+
+      const data = await res.json();
+
+      if(res.ok){
+       
+        console.log(data.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+
+
+  }
 
 export default function Header() {
     // gettig current path
@@ -63,7 +84,7 @@ export default function Header() {
                     </Link>
                     <Dropdown.Divider/>
                     <Dropdown.Item>
-                        <span className='text-red-600 font-bold'>Sign Out</span>
+                        <span className='text-red-600 font-bold' onClick={handleSignOut}>Sign Out</span>
                     </Dropdown.Item>
                  </Dropdown>   
                 ) : (
