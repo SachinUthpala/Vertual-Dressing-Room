@@ -1,4 +1,4 @@
-import { Sidebar, Label } from 'flowbite-react';
+import { Sidebar } from 'flowbite-react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import {
