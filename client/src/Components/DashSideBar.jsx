@@ -9,6 +9,8 @@ import {
   // HiAnnotation,
   // HiChartPie,
 } from 'react-icons/hi';
+import { GiAmpleDress } from "react-icons/gi";
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function DashSideBar() {
@@ -26,6 +28,9 @@ export default function DashSideBar() {
     }
   } , [location.search])
 
+
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
     <Sidebar className='w-full md:w-56'>
       <Sidebar.Items>
@@ -38,6 +43,13 @@ export default function DashSideBar() {
           <Sidebar.Item  icon={HiArrowSmLeft} label='Sign Out' labelColor='red' className = "cursor-pointer">
             Sign Out
           </Sidebar.Item>
+          {currentUser.isAdmin && (
+        <Link to={'/create-dress'}>
+         <Sidebar.Item active={tab === 'profile'} icon={GiAmpleDress} label='Add Dress' labelColor='dark' as="div">
+              Add Dress
+            </Sidebar.Item>
+        </Link>
+      )}
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

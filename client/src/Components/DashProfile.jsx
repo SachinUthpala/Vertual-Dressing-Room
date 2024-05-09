@@ -4,7 +4,7 @@ import { app } from './../firebase';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { Link } from 'react-router-dom';
+
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { Button, TextInput, Alert, Modal } from 'flowbite-react';
 import { updateStart, updateSuccess, updateFailure, deleteUserStart, deleteUserFailure, signoutSuccess } from '../redux/user/userSlice';
@@ -122,7 +122,7 @@ export default function DashProfile() {
 
   const handleSignOut = async () => {
     try {
-      const res = await fetch('/api/user/signout', {
+      const res = await fetch('/api/user/signOut', {
         method: 'POST',
       });
       const data = await res.json();
@@ -167,13 +167,7 @@ export default function DashProfile() {
         <TextInput type='password' placeholder='Password' id="password" onChange={handleChange} />
         <Button type='submit' gradientDuoTone='purpleToBlue' outline>Update</Button>
       </form>
-      {currentUser.isAdmin && (
-        <Link to={'/create-dress'}>
-          <Button type='button' gradientDuoTone='purpleToBlue' className='w-full' >
-            Add A Dress
-          </Button>
-        </Link>
-      )}
+      
       <div className='text-red-500 flex justify-between mt-5'>
         <span onClick={() => setShowModel(true)} className='cursor-pointer'>
           Delete Account
