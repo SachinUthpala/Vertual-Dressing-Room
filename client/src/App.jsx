@@ -7,6 +7,8 @@ import Header from './Components/Header';
 import AboutUs from './Pages/About';
 import Footers from './Components/Footers';
 import PrivateRout from './Components/PrivateRout';
+import OnlyAdminPrivateRout from './Components/OnlyAdminPrivateRout';
+import CreateDress from './Pages/CreateDress';
 
 
 export default function App() {
@@ -19,6 +21,9 @@ export default function App() {
         <Route path='/signin' element={<SignIn/>} />
         <Route element={<PrivateRout/>}>
           <Route path='/dashbord' element={<Dashbord/>} />
+        </Route>
+        <Route element={<OnlyAdminPrivateRout/>}>
+          <Route path='/create-dress' element={<CreateDress/>} />
         </Route>
         <Route path='/aboutus' element={<AboutUs/>} />
       </Routes>

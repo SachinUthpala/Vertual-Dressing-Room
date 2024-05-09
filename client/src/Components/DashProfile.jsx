@@ -7,7 +7,7 @@ import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/st
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
+import {Link} from 'react-router-dom'
 import { updateStart , updateSuccess , updateFailure, deleteUserStart, deleteUserFailure, deleteUserSuccess , signoutSuccess} from '../redux/user/userSlice';
 
 
@@ -205,6 +205,20 @@ export default function DashProfile() {
             } />
 
             <Button type='submit' gradientDuoTone='purpleToBlue' outline>Update</Button>
+
+            {
+              currentUser.isAdmin && (
+                <Link to={'/create-dress'}>
+                  <Button type='button' 
+                    gradientDuoTone='purpleToBlue'
+                    className='w-full' >
+                      Add A Dress
+                    </Button>
+                </Link>
+              )
+            }
+
+
         </form>
         <div className='text-red-500 flex justify-between mt-5'>
         <span onClick={() => setShoeModel(true)} className='cursor-pointer'>
