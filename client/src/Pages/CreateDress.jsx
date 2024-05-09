@@ -94,8 +94,9 @@ export default function CreateDress() {
                             setFormData({ ...formData, genderType: e.target.value })
                         }
                     >
-                        <option value="Men">men</option>
+                        <option>Gender</option>
                         <option value="Women">Women</option>
+                        <option value="Men">men</option>
                     </Select>
                 </div>
                 <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">

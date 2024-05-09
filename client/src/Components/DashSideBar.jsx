@@ -45,11 +45,21 @@ export default function DashSideBar() {
           </Sidebar.Item>
           {currentUser.isAdmin && (
         <Link to={'/create-dress'}>
-         <Sidebar.Item active={tab === 'profile'} icon={GiAmpleDress} label='Add Dress' labelColor='dark' as="div">
+         <Sidebar.Item active={tab === 'profile'} icon={GiAmpleDress} label='Add' labelColor='dark' as="div">
               Add Dress
             </Sidebar.Item>
         </Link>
       )}
+
+    {currentUser.isAdmin && (
+        <Link to={'/all-dress'}>
+         <Sidebar.Item active={tab === 'profile'} icon={GiAmpleDress} label='All Dress' className="mt-2" labelColor='dark' as="div">
+              All Dress
+            </Sidebar.Item>
+        </Link>
+      )}
+
+
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

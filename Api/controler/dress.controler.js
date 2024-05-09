@@ -26,10 +26,14 @@ export const create = async (req, res , next) => {
         res.status(201).json({
             message : "Dress Created Successfully",
             dresss : result
-        }).catch((err) => {
-            next(err);
         })
     })
 
     
+}
+
+export const allDress = async (req, res , next) => {
+    const dress = await Dress.find();
+    res.json(dress);
+    console.log(dress);
 }
