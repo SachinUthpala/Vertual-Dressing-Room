@@ -54,6 +54,31 @@ export default function CreateDress() {
         }
     };
 
+    const handleSubmit = async  (e) => {
+      e.preventDefault();
+
+      if (Object.keys(formData).length === 0) {
+        return;
+      }
+
+      try{
+        const res = await fetch('/api/cloth/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+        if(res.ok){
+          console.log(data);
+        }
+      }catch(err){
+        console.log(err);
+      }
+    }
+
     return (
         <div className='p-3 max-w-3xl mx-auto min-h-screen'>
             <h1 className='text-center text-3xl my-7 font-semibold'>Create a Dress</h1>
@@ -87,9 +112,9 @@ export default function CreateDress() {
                     </Button>
                 </div>
                 <div className='flex flex-col gap-4 sm:flex-row justify-between'>
-                    <TextInput type="text" placeholder="Discription" id="discription" className="flex-1"
+                    <TextInput type="text" placeholder="Discription" id="Discription" className="flex-1"
                         onChange={(e) =>
-                            setFormData({ ...formData, discription: e.target.value })
+                            setFormData({ ...formData, Discription: e.target.value })
                         }
                     />
                     <TextInput type="number" placeholder="Price" id="price" className="flex-1"
@@ -98,7 +123,7 @@ export default function CreateDress() {
                         }
                     />
                 </div>
-                <Button type='submit' disabled={imgUploadProgress} gradientDuoTone='purpleToPink'>
+                <Button type='submit' disabled={imgUploadProgress} gradientDuoTone='purpleToPink' onClick={handleSubmit}>
                     Create Dress
                 </Button>
             </form>

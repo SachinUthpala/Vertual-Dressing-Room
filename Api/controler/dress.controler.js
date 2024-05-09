@@ -11,14 +11,15 @@ export const create = async (req, res , next) => {
          price , 
          imageUrl } = req.body;
 
+        const prices = Number(price);
     console.log(req.body);
-
+    
     const dresss = new Dress({
-        dressName ,
-         genderType , 
-         Discription ,
-         price , 
-         imageUrl 
+        dressName : dressName ,
+         genderType : genderType , 
+         Discription : Discription  ,
+         price : prices , 
+         imageUrl  : imageUrl
     });
 
     dresss.save().then((result) => {
