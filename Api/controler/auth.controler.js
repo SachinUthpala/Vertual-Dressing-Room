@@ -24,7 +24,7 @@ export const signUp = async (req , res , next) => {
         next(errorHandler(400, 'All fields are required'));
       }
 
-    const hashPass = bryptjs.hashSync(password , 10);
+    const hashPass = bcryptjs.hashSync(password , 10);
 
     const newUser = new User({
         username,
