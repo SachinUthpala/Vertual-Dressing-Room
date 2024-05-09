@@ -97,7 +97,8 @@ export const signIn = async (req, res, next) => {
         }
 
         const token = jwt.sign({
-            id: validUser._id
+            id: validUser._id,
+            isAdmin: validUser.isAdmin
         }, "Sachin");
 
         const { password : pass , ...rest } = validUser._doc;
@@ -126,7 +127,7 @@ export const google = async (req , res , next) => {
 
        const user = await User.findOne({email});
        if(user){
-        const token = jwt.sign({id:user._id} , "Sachin");
+        const token = jwt.sign({id:user._id , isAdmin: user.isAdmin} , "Sachin");
         const { password : pass , ...rest } = user._doc;
 
         res.status(200).cookie('access_token' , token , {
@@ -144,7 +145,7 @@ export const google = async (req , res , next) => {
             });
 
             await newUser.save();
-            const token = jwt.sign({id:newUser._id} , "Sachin");
+            const token = jwt.sign({id:newUser._id , isAdmin:newUser.isAdmin} , "Sachin");
             const { password : pass , ...rest } = newUser._doc;
             res.status(200).cookie('access_token' , token , {
                 httpOnly :true,
