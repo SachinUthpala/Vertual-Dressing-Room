@@ -49,3 +49,13 @@ export const MenDress = async (req,res,next) => {
         next(error);
       }
 }
+
+export const WomenDress = async (req,res,next) => {
+    try {
+        const menDresses = await Dress.find({ genderType: 'Women' });
+        res.status(200).json(menDresses);
+      } catch (error) {
+        // Pass any errors to the error handling middleware
+        next(error);
+      }
+}

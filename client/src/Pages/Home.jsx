@@ -6,6 +6,7 @@ import { CiHeadphones } from "react-icons/ci";
 import SignUpBanner from "../Components/SignUpBanner";
 import HomeCurosal from "../Components/HomeCurosal";
 import Mens from "../Components/Mens";
+import Women from "../Components/Women";
 
 
 export default function Home() {
@@ -98,6 +99,7 @@ export default function Home() {
       </div>
 
       <Mens/>
+      <Women/>
     </>
   )
 }

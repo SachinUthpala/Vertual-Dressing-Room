@@ -9,7 +9,7 @@ export default function Mens() {
 
     useEffect(() => {
         const fetchDress = async () => {
-            const res = await axios("/api/cloth/getMen")
+            const res = await axios("/api/cloth/getWomen")
             setDress(res.data);
         }
 
@@ -17,7 +17,7 @@ export default function Mens() {
     } , [])
   return (
     <div className="pt-20 pb-20 pl-10 pr-10">
-        <h1 className="mb-10 text-4xl text-center ">Mens Collection</h1>
+        <h1 className="mb-10 text-4xl text-center ">Womens Collection</h1>
       <div className="w-full grid gap-10 grid-cols-4  ">
 
         {
