@@ -14,6 +14,12 @@ export const create = async (req, res , next) => {
 
         const prices = Number(price);
     console.log(req.body);
+
+    if(!dressName || !genderType || !Discription || !price || !imageUrl || !clothType){
+        return res.status(400).json({
+            message : "All fields are required"
+        })
+    }
     
     const dresss = new Dress({
         dressName : dressName ,
