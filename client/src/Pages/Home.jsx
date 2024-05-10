@@ -5,6 +5,7 @@ import { GiClothes } from "react-icons/gi";
 import { CiHeadphones } from "react-icons/ci";
 import SignUpBanner from "../Components/SignUpBanner";
 import HomeCurosal from "../Components/HomeCurosal";
+import Mens from "../Components/Mens";
 
 
 export default function Home() {
@@ -92,9 +93,11 @@ export default function Home() {
             Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
           </p>
         </Card>
+
+        
       </div>
 
-      
+      <Mens/>
     </>
   )
 }

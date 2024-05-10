@@ -39,3 +39,13 @@ export const allDress = async (req, res , next) => {
     res.json(dress);
     console.log(dress);
 }
+
+export const MenDress = async (req,res,next) => {
+    try {
+        const menDresses = await Dress.find({ genderType: 'Men' });
+        res.status(200).json(menDresses);
+      } catch (error) {
+        // Pass any errors to the error handling middleware
+        next(error);
+      }
+}
