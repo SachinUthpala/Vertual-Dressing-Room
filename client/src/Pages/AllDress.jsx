@@ -26,7 +26,10 @@ export default function AllDress() {
           <Table.HeadCell>Description</Table.HeadCell>
           <Table.HeadCell>Price</Table.HeadCell>
           <Table.HeadCell>
-            <span className="sr-only">Edit</span>
+            Edit
+          </Table.HeadCell>
+          <Table.HeadCell>
+            Delete
           </Table.HeadCell>
         </Table.Head>
         <Table.Body className="divide-y">
@@ -41,12 +44,17 @@ export default function AllDress() {
     <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
       {item.dressName}
     </Table.Cell>
-    <Table.Cell>Sliver</Table.Cell>
-    <Table.Cell>Laptop</Table.Cell>
-    <Table.Cell>$2999</Table.Cell>
+    <Table.Cell>{item.genderType}</Table.Cell>
+    <Table.Cell>{item.Discription}</Table.Cell>
+    <Table.Cell>Rs . {item.price} /=</Table.Cell>
     <Table.Cell>
       <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
         Edit
+      </a>
+    </Table.Cell>
+    <Table.Cell>
+      <a href="#" className="font-medium text-red-600 hover:underline dark:text-red-500">
+        Delete
       </a>
     </Table.Cell>
   </Table.Row>

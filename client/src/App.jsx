@@ -10,6 +10,8 @@ import PrivateRout from './Components/PrivateRout';
 import OnlyAdminPrivateRout from './Components/OnlyAdminPrivateRout';
 import CreateDress from './Pages/CreateDress';
 import AllDress from './Pages/AllDress';
+import AllUsers from './Pages/AllUsers';
+
 
 
 export default function App() {
@@ -28,6 +30,9 @@ export default function App() {
         </Route>
         <Route element={<OnlyAdminPrivateRout/>}>
           <Route path='/all-dress' element={<AllDress/>} />
+        </Route>
+        <Route element={<OnlyAdminPrivateRout/>}>
+          <Route path='/all-users' element={<AllUsers/>} />
         </Route>
         <Route path='/aboutus' element={<AboutUs/>} />
       </Routes>

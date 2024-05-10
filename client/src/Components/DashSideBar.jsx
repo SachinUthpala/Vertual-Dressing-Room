@@ -12,6 +12,7 @@ import {
 import { GiAmpleDress } from "react-icons/gi";
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { FaUsers } from "react-icons/fa6";
 
 export default function DashSideBar() {
 
@@ -55,6 +56,14 @@ export default function DashSideBar() {
         <Link to={'/all-dress'}>
          <Sidebar.Item active={tab === 'profile'} icon={GiAmpleDress} label='All Dress' className="mt-2" labelColor='dark' as="div">
               All Dress
+            </Sidebar.Item>
+        </Link>
+      )}
+
+{currentUser.isAdmin && (
+        <Link to={'/all-users'}>
+         <Sidebar.Item active={tab === 'profile'} icon={FaUsers} label='All Users' className="mt-2" labelColor='dark' as="div">
+              All Users
             </Sidebar.Item>
         </Link>
       )}
