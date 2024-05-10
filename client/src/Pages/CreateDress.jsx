@@ -1,9 +1,10 @@
-import { Button, FileInput, Select, TextInput } from "flowbite-react";
+import { Button, FileInput, Select, TextInput, Toast } from "flowbite-react";
 import { useState } from "react";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { app } from './../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { HiCheck, HiExclamation, HiX } from "react-icons/hi";
 
 export default function CreateDress() {
 
@@ -11,6 +12,7 @@ export default function CreateDress() {
     const [imgUploadProgress , setImgUploadProgress] = useState(null);
     const [imgUploadError , setImgUploadError] = useState(null);
     const [formData , setFormData] = useState({});
+    const [tostMsg , setTostmsg] = useState(false);
 
     console.log(formData);
 
@@ -73,6 +75,7 @@ export default function CreateDress() {
         const data = await res.json();
         if(res.ok){
           console.log(data);
+          setTostmsg(true);
         }
       }catch(err){
         console.log(err);
@@ -138,6 +141,19 @@ export default function CreateDress() {
                     Create Dress
                 </Button>
             </form>
+
+
+            {
+                tostMsg && (
+                    <Toast className="mt-10">
+        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
+          <HiCheck className="h-5 w-5" />
+        </div>
+        <div className="ml-3 text-sm font-normal">Item Added successfully.</div>
+        <Toast.Toggle />
+      </Toast>
+                )
+            }
         </div>
     );
 }
