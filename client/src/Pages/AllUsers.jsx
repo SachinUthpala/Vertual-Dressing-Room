@@ -5,7 +5,8 @@ import { Button } from "flowbite-react";
 
 export default function AllUsers() {
 
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState([]);
+    const [userId , setUserId] = useState(null);
     useEffect(() => {
       const fetchUser = async () => {
         const res = await axios("/api/user/all")
@@ -16,6 +17,15 @@ export default function AllUsers() {
       fetchUser()
     },[])
   
+    // const handleChange = (e) => {
+    //     setUserId( e.target.value );
+    //   };
+    
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        console.log(userId);
+    }
 
 
   return (
@@ -55,9 +65,10 @@ export default function AllUsers() {
         }
     </Table.Cell>
     <Table.Cell>
-      <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-        Delete
-      </a>
+      <form onSubmit={handleDelete} >
+        <input type="hidden" name="id" id="id"  />
+        <button onClick={() => setUserId(item._id)}>Delet</button>
+      </form>
     </Table.Cell>
   </Table.Row>
   ))
