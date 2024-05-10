@@ -20,6 +20,10 @@ const dressShema = new mongoose.Schema({
     imageUrl : {
         type : String,
         default : "https://i.pinimg.com/originals/34/43/62/344362655514931456968349828428.jpg",
+    },
+    clothType : {
+        type : String,
+        required : true
     }
 });
 

@@ -123,6 +123,16 @@ export default function CreateDress() {
                             setFormData({ ...formData, price: e.target.value })
                         }
                     />
+                
+                    <Select id="clothType"
+                        onChange={(e) =>
+                            setFormData({ ...formData, clothType: e.target.value })
+                        }
+                    >
+                        <option>Cloth Type</option>
+                        <option value="Top">Top</option>
+                        <option value="Bottom">Bottom</option>
+                    </Select>
                 </div>
                 <Button type='submit' disabled={imgUploadProgress} gradientDuoTone='purpleToPink' onClick={handleSubmit}>
                     Create Dress

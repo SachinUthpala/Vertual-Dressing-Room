@@ -9,7 +9,8 @@ export const create = async (req, res , next) => {
          genderType , 
          Discription ,
          price , 
-         imageUrl } = req.body;
+         imageUrl,
+        clothType } = req.body;
 
         const prices = Number(price);
     console.log(req.body);
@@ -19,7 +20,8 @@ export const create = async (req, res , next) => {
          genderType : genderType , 
          Discription : Discription  ,
          price : prices , 
-         imageUrl  : imageUrl
+         imageUrl  : imageUrl,
+         clothType : clothType,
     });
 
     dresss.save().then((result) => {
