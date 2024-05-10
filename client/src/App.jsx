@@ -11,6 +11,7 @@ import OnlyAdminPrivateRout from './Components/OnlyAdminPrivateRout';
 import CreateDress from './Pages/CreateDress';
 import AllDress from './Pages/AllDress';
 import AllUsers from './Pages/AllUsers';
+import DressingRoom from './Pages/DressingRoom';
 
 
 
@@ -24,6 +25,9 @@ export default function App() {
         <Route path='/signin' element={<SignIn/>} />
         <Route element={<PrivateRout/>}>
           <Route path='/dashbord' element={<Dashbord/>} />
+        </Route>
+        <Route element={<PrivateRout/>}>
+          <Route path='/tryDress' element={<DressingRoom/>} />
         </Route>
         <Route element={<OnlyAdminPrivateRout/>}>
           <Route path='/create-dress' element={<CreateDress/>} />
