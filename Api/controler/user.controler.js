@@ -90,5 +90,19 @@ export const signout = (req, res, next) => {
 export const getAllUsers = async (req , res , next) => {
   const users = await User.find();
   res.json(users);
-  console.log(users);
+
 }
+
+
+
+export const deleteGest = async (req, res, next) => {
+  try {
+    console.log("delete api start");
+    console.log(req.params.userId);
+    await User.findByIdAndDelete(req.params.userId);
+    res.status(200).json({ message: 'User has been deleted' });
+  } catch (error) {
+    // If there's an error, pass it to the error handling middleware
+    next(error);
+  }
+};
