@@ -3,15 +3,14 @@ import { Card } from "flowbite-react";
 import { useEffect, useState } from "react";
 
 
+export default function WomenDressingRoom() {
 
-export default function MensDressing() {
-
-  const [dress , setDress] = useState([]);
+    const [dress , setDress] = useState([]);
   const [top , setTop] = useState(null);
   const [bottom , setbottom] = useState(null);
     useEffect(() => {
         const fetchDress = async () => {
-            const res = await axios("/api/cloth/getMen")
+            const res = await axios("/api/cloth/getWomen")
             setDress(res.data);
         }
 
@@ -20,21 +19,20 @@ export default function MensDressing() {
 
 
 
-
-
   return (
     <div className="flex p-5  mb-10 justify-between">
         <div className="border-r-4 border-black">
           <div className="pt-20 pb-20 pl-10 pr-10">
-        <h1 className="mb-10 text-4xl text-center ">Mens Collection</h1>
+        <h1 className="mb-10 text-4xl text-center ">Womens Collection</h1>
       <div className="w-full grid gap-10 grid-cols-2  ">
 
         {
             dress.map((item , index) => (
                 <Card key={index}
-      className="max-w-sm"
+      className="w-64"
       imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
       imgSrc={item.imageUrl} 
+      
     >
       <a href="#">
         <h4 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.dressName}</h4>
@@ -75,10 +73,10 @@ export default function MensDressing() {
       </div>
         <div className="flex-1 items-center justify-center">
         <h1 className="mb-10 text-4xl text-center ">Dress Matching Room</h1>
-        <div className="items-center justify-center ml-52">
+        <div className="items-center justify-center ml-36">
           {/* <img src="./public/boy.png" alt="" /> */}
-          <img src={top} alt="" className="" />
-          <img src={bottom   } alt="" className="" />
+          <img src={top} alt="" className="" width="400px"/>
+          <img src={bottom   } alt="" className="" width="400px" />
         </div>
         </div>
     </div>
