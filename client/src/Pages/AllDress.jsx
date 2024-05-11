@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react"
 import axios from 'axios'
 import { Table } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 export default function AllDress() {
 
@@ -62,9 +63,11 @@ export default function AllDress() {
     <Table.Cell>{item.Discription}</Table.Cell>
     <Table.Cell>Rs . {item.price} /=</Table.Cell>
     <Table.Cell>
-      <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-        Edit
-      </a>
+      <Link to={`/updateDress/${item._id}`}>
+        <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+          Edit
+        </a>
+      </Link>
     </Table.Cell>
     <Table.Cell>
       <a onClick={() => handleDelete(item._id)} href="#" className="font-medium text-red-600 hover:underline dark:text-red-500">

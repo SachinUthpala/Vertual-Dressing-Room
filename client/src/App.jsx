@@ -12,6 +12,7 @@ import CreateDress from './Pages/CreateDress';
 import AllDress from './Pages/AllDress';
 import AllUsers from './Pages/AllUsers';
 import DressingRoom from './Pages/DressingRoom';
+import DressUpdate from './Pages/DressUpdate';
 
 
 
@@ -39,6 +40,7 @@ export default function App() {
           <Route path='/all-users' element={<AllUsers/>} />
         </Route>
         <Route path='/aboutus' element={<AboutUs/>} />
+        <Route path='/updateDress/:id' element={<DressUpdate/>} />
       </Routes>
       <Footers/>
     </BrowserRouter>
