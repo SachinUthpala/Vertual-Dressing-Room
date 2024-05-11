@@ -15,6 +15,20 @@ export default function AllDress() {
     fetchDress()
   },[])
 
+  const handleDelete = async(id) => {
+   try {
+    const res = await axios.delete(`/api/cloth/delete/${id}`)
+    console.log(res);
+
+    setDress((prev) =>
+      prev.filter((post) => post._id !== id)
+    );
+   } catch (error) {
+    console.error(error);
+   }
+    
+  } 
+
   console.log(dress);
   return (
     <div className="overflow-x-auto mt-5 mb-5 pl-5 pr-5">
@@ -53,7 +67,7 @@ export default function AllDress() {
       </a>
     </Table.Cell>
     <Table.Cell>
-      <a href="#" className="font-medium text-red-600 hover:underline dark:text-red-500">
+      <a onClick={() => handleDelete(item._id)} href="#" className="font-medium text-red-600 hover:underline dark:text-red-500">
         Delete
       </a>
     </Table.Cell>

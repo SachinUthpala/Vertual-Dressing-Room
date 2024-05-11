@@ -65,3 +65,13 @@ export const WomenDress = async (req,res,next) => {
         next(error);
       }
 }
+
+export const DeleteDress = async (req,res,next) => {
+    try {
+         await Dress.findByIdAndDelete(req.params.id);
+        res.status(200).json("Dress has been deleted...");
+      } catch (error) {
+        // Pass any errors to the error handling middleware
+        next(error);
+      }
+}
