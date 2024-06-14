@@ -10,8 +10,8 @@ export default function DressingRoom() {
   return (
     <div>
       <div className="flex justify-center gap-4 mt-2">
-      <Button onClick={() => setGender('Male')}>Men's Collection</Button>
-      <Button onClick={() => setGender('Women')}>Women's Collection</Button>
+      <Button onClick={() => setGender('Male')}>Mens Collection</Button>
+      <Button onClick={() => setGender('Women')}>Womens Collection</Button>
       </div>
       {
         gender === 'Male' ? (

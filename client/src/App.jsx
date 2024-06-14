@@ -13,6 +13,7 @@ import AllDress from './Pages/AllDress';
 import AllUsers from './Pages/AllUsers';
 import DressingRoom from './Pages/DressingRoom';
 import DressUpdate from './Pages/DressUpdate';
+import Customize from './Pages/Customize';
 
 
 
@@ -29,6 +30,9 @@ export default function App() {
         </Route>
         <Route element={<PrivateRout/>}>
           <Route path='/tryDress' element={<DressingRoom/>} />
+        </Route>
+        <Route element={<PrivateRout/>}>
+          <Route path='/customizeDress' element={<Customize/>} />
         </Route>
         <Route element={<OnlyAdminPrivateRout/>}>
           <Route path='/create-dress' element={<CreateDress/>} />
