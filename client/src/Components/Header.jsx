@@ -114,11 +114,22 @@ export default function Header() {
                     Contact Us
                 </Link>
             </Navbar.Link>
+            {/* try our dress */}
             {
                 currentUser && (
-                    <Navbar.Link active={path === 'contactus'} as={'div'}>
+                    <Navbar.Link active={path === '/tryDress'} as={'div'}>
                 <Link to={'/tryDress'}>
                     Try Dress
+                </Link>
+            </Navbar.Link>
+                )
+            }
+            {/* customize design */}
+            {
+                currentUser && (
+                    <Navbar.Link active={path === '/customizeDress'} as={'div'}>
+                <Link to={'/customizeDress'}>
+                    Customize
                 </Link>
             </Navbar.Link>
                 )
